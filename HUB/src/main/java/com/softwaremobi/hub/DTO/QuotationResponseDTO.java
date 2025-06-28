@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class QuotationResponseDTO {
-    private Integer quantity;
+    private String cdUrl;
+    private String productId;
+    private String name;
     private Double price;
-    private String url;
+    private Integer availableStock;
 }

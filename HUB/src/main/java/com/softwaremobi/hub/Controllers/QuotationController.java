@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/quotation")
@@ -13,8 +14,8 @@ public class QuotationController {
     @Autowired
     private QuotationService quotationService;
 
-    @GetMapping("/{productId}/{quantity}")
-    public ArrayList<QuotationResponseDTO> getQuotation(@PathVariable String productId, @PathVariable int quantity) {
-        return quotationService.getQuotation(productId, quantity);
+    @GetMapping("/{productName}/{quantity}")
+    public List<QuotationResponseDTO> getQuotation(@PathVariable String productName, @PathVariable int quantity) {
+        return quotationService.getQuotation(productName, quantity);
     }
 }
