@@ -38,10 +38,10 @@ public class QuotationService {
     public List<QuotationResponseDTO> getQuotation(String name, int quantity) {
         List<QuotationResponseDTO> results = new ArrayList<>();
 
-        try { results.add(toQuotation(cd1Client.getProductInfo(name), cd1Url)); } catch (Exception ignored) {}
-        try { results.add(toQuotation(cd2Client.getProductInfo(name), cd2Url)); } catch (Exception ignored) {}
-        try { results.add(toQuotation(cd3Client.getProductInfo(name), cd3Url)); } catch (Exception ignored) {}
-        try { results.add(toQuotation(cd4Client.getProductInfo(name), cd4Url)); } catch (Exception ignored) {}
+        try { results.add(toQuotation(cd1Client.getProductInfo(name), cd1Url)); } catch (Exception e) { System.out.println("cd1 error: " + e.getMessage()); }
+        try { results.add(toQuotation(cd2Client.getProductInfo(name), cd2Url)); } catch (Exception e) { System.out.println("cd2 error: " + e.getMessage()); }
+        try { results.add(toQuotation(cd3Client.getProductInfo(name), cd3Url)); } catch (Exception e) { System.out.println("cd3 error: " + e.getMessage()); }
+        try { results.add(toQuotation(cd4Client.getProductInfo(name), cd4Url)); } catch (Exception e) { System.out.println("cd4 error: " + e.getMessage()); }
 
         return results.stream()
                 .filter(p -> p.getAvailableStock() >= quantity)
