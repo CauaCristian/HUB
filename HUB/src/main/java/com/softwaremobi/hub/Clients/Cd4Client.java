@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface Cd4Client {
     @GetMapping("/")
     boolean isLive();
-    @GetMapping("products/name/{name}")
+    @GetMapping("/products/name/{name}")
     ProductClientResponseDTO getProductInfo(@PathVariable String name);
 }
